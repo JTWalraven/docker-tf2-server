@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:precise
 MAINTAINER Max Gonzih <gonzih at gmail dot com>
 
 RUN apt-get -y update
