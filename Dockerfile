@@ -16,9 +16,10 @@ RUN cd $HOME/hlserver && ./steamcmd.sh +quit
 ADD ./tf2_ds.txt $SERVER/tf2_ds.txt
 ADD ./update.sh $SERVER/update.sh
 ADD ./tf.sh $SERVER/tf.sh
-RUN chmod u+x $SERVER/*.sh
+USER root
+RUN chown tf2 $SERVER/* && chmod u+x $SERVER/*.sh
 
+USER tf2
 EXPOSE 27015/udp
-
 ENTRYPOINT ["/home/tf2/hlserver/tf.sh"]
 CMD ["+sv_pure", "1", "+mapcycle", "mapcycle_quickplay_payload.txt", "+map", "pl_badwater.bsp", "+maxplayers", "24"]
