@@ -16,6 +16,7 @@ RUN cd $HOME/hlserver && ./steamcmd.sh +quit
 ADD ./tf2_ds.txt $SERVER/tf2_ds.txt
 ADD ./update.sh $SERVER/update.sh
 ADD ./tf.sh $SERVER/tf.sh
+RUN chmod u+x $SERVER/*.sh
 
 EXPOSE 27015/udp
 
